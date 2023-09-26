@@ -42,7 +42,7 @@ var data_source_1 = require("./data-source");
 var bodyParser = require("body-parser");
 var cors = require("cors");
 var routes_1 = require("./routes");
-var application = data_source_1.AppDataSource.initialize().then(function () { return __awaiter(void 0, void 0, void 0, function () {
+data_source_1.AppDataSource.initialize().then(function () { return __awaiter(void 0, void 0, void 0, function () {
     var app;
     return __generator(this, function (_a) {
         app = express();
@@ -53,5 +53,4 @@ var application = data_source_1.AppDataSource.initialize().then(function () { re
         return [2 /*return*/];
     });
 }); });
-module.exports = application;
 //# sourceMappingURL=index.js.map

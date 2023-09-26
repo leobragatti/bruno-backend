@@ -5,11 +5,7 @@ import * as bodyParser from "body-parser";
 import * as cors from "cors";
 import routes from "./routes";
 
-<<<<<<< HEAD
-const application = AppDataSource.initialize().then(async () => {
-=======
 AppDataSource.initialize().then(async () => {
->>>>>>> 73c1355d798107019451c86b391d862ce0d28b75
   const app = express();
 
   app.use(cors());
@@ -17,8 +13,3 @@ AppDataSource.initialize().then(async () => {
   app.use(routes);
   app.listen(3333);
 });
-<<<<<<< HEAD
-
-module.exports = application;
-=======
->>>>>>> 73c1355d798107019451c86b391d862ce0d28b75
