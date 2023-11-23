@@ -1,3 +1,4 @@
+import { ILike } from "typeorm";
 import { AppDataSource } from "../data-source";
 import { Tasks } from "../entity/Tasks";
 
@@ -6,7 +7,14 @@ import { Request, Response } from "express";
 const repository = AppDataSource.getRepository(Tasks);
 
 export const getTasks = async (request: Request, response: Response) => {
-  const tasks = await repository.find();
+  const { q } = request.query;
+  const query = repository.createQueryBuilder();
+
+  if (q) {
+    query.setFindOptions({ where: { title: ILike(`%${q}%`) } });
+  }
+
+  const tasks = await query.getMany();
   return response.json(tasks);
 };
 
